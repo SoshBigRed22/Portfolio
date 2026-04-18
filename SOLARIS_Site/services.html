@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SOLARIS Services</title>
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+   <div class="header">
+	<h1>SOLARIS</h1>
+	<h2>The Long-Awaited Comeback Tour</h2>
+   </div>
+
+   <div class="NAV">
+	<ul class="NAV-list">
+	 <li><a href="index.html">Home</a></li>
+	 <li><a href="albums.html">Albums</a></li>
+	 <li><a href="services.html" class="active">Services</a></li>
+	</ul>
+   </div>
+
+   <main class="services-main">
+	<section class="services-panel" aria-labelledby="tour-dates-heading">
+	 <h3 id="tour-dates-heading">Tour Dates And Locations</h3>
+	 <p class="services-intro">
+	  Dates and cities are loaded from a single data file so this page is easy to keep current.
+	 </p>
+	 <div id="tourDatesContainer" class="tour-list" aria-live="polite"></div>
+	</section>
+
+	<section class="services-panel" aria-labelledby="official-links-heading">
+	 <h3 id="official-links-heading">Official Socials And Tickets</h3>
+	 <p class="services-intro">
+	  Follow Joji on official channels and use verified links for tickets.
+	 </p>
+	 <div id="officialLinksContainer" class="official-links" aria-live="polite"></div>
+	</section>
+   </main>
+
+   <footer class="site-footer" aria-label="Site Disclaimer">
+	<div class="footer-content">
+	 <p class="footer-disclaimer">
+	  Disclaimer: This website is fan-made, unofficial, and not affiliated with Joji or his team.
+	  It does not generate any monetization and was created purely for fun.
+	 </p>
+	 <p class="footer-contact">
+	  If you would like to support my work or connect about web development projects, contact me at
+	  <a href="mailto:yourbusiness@email.com">yourbusiness@email.com</a>.
+	 </p>
+	</div>
+   </footer>
+
+	<script src="js/services.js"></script>
+</body>
+</html>

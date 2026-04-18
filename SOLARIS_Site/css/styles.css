@@ -1,0 +1,549 @@
+.header {
+    text-align: center;
+    padding: 20px 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #1c2027;
+    background-image:
+        linear-gradient(180deg,
+            rgba(158, 165, 173, 0.18) 0%,
+            rgba(115, 122, 131, 0.26) 25%,
+            rgba(75, 82, 92, 0.48) 55%,
+            rgba(47, 53, 63, 0.78) 80%,
+            rgba(28, 32, 39, 0.95) 100%),
+        linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+        url(../img/SOLARIS_TOUR.webp);
+    background-size: 100% 100%, 100% auto, 100% auto;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: top center, top center, top center;
+    color: #111;
+}
+
+.filter-controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: rgba(0, 0, 0, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 8px;
+    color: #fff;
+}
+
+.filter-controls label {
+    font-size: 14px;
+}
+
+.filter-controls select {
+    background: #fff;
+    color: #111;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 14px;
+}
+
+h1 {
+    color: blue;
+    text-align: center;
+    margin: 20px 0 5px;
+    font-size: 48px;
+    -webkit-text-stroke: black 1px;
+}
+
+h2 {
+    color: #6b0000;
+    text-align: center;
+    text-shadow: 3px 2px 2px black;
+    font-size: 35px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+p {
+    text-align: center;
+}
+
+.album-square {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin: 10px;
+    border: 1px solid #000;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    background-size: cover;
+    background-position: center;
+    box-sizing: border-box;
+}
+
+.album-square:hover {
+    transform: scale(1.05);
+}
+
+.album-overlay {
+    position: absolute;
+    top: 50%;
+    right: -100%;
+    transform: translateY(-50%);
+    padding: 12px 16px;
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.3;
+    text-align: left;
+    white-space: nowrap;
+    border-radius: 5px 0 0 5px;
+    transition: right 0.3s ease;
+}
+
+.album-square:hover .album-overlay {
+    right: 10px;
+}
+
+
+.album-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px clamp(16px, 8vw, 250px) 40px;
+}
+
+.album-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    width: 100%;
+    max-width: 1240px;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 2px dotted rgba(255, 255, 255, 0.6);
+}
+
+.album-section:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.album-songs {
+    color: #fff;
+    text-shadow: 1px 1px 2px #000;
+    width: min(100%, 760px);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-20px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+    pointer-events: none;
+}
+
+.album-square:hover + .album-songs {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.album-section:hover .album-songs {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.album-songs ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(140px, 1fr));
+    column-gap: 24px;
+    row-gap: 6px;
+}
+
+.album-songs li {
+    margin-bottom: 0;
+    line-height: 1.3;
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+.NAV{
+    height: 50px;
+    background-color: rgba(0, 123, 12, 0);
+    padding: 1rem;
+}
+
+.NAV-list{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.NAV-list li{
+    margin: 0 20px;
+}
+
+.NAV-list a{
+    text-decoration: none;
+    color: rgb(255, 0, 0);
+    font-family: Arial;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+    font-size: 25px;
+}
+
+.NAV-list a:hover{
+    color: #00f2ff;
+}
+
+.NAV-list a.active {
+    color: #00f2ff;
+    border-bottom: 2px solid #00f2ff;
+    padding-bottom: 2px;
+}
+
+.main-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.services-main {
+    width: min(1080px, 92vw);
+    margin: 30px auto 24px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+.services-panel {
+    background: rgba(6, 11, 18, 0.72);
+    border: 1px solid rgba(136, 164, 190, 0.55);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.services-panel h3 {
+    margin: 0;
+    color: #e7edf5;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.services-intro {
+    margin: 10px 0 18px;
+    color: #c9d5e3;
+    text-align: center;
+}
+
+.tour-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+}
+
+.tour-card {
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(162, 188, 212, 0.45);
+    background: rgba(14, 21, 30, 0.82);
+    color: #f4f8fd;
+}
+
+.tour-date {
+    margin: 0;
+    font-size: 0.86rem;
+    color: #9fc5ff;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.tour-location {
+    margin: 8px 0 4px;
+    font-size: 1.1rem;
+    color: #ffffff;
+}
+
+.tour-venue {
+    margin: 0 0 10px;
+    text-align: left;
+    color: #d7e2ee;
+}
+
+.tickets-link {
+    display: inline-block;
+    text-decoration: none;
+    color: #07131d;
+    background: #7ee8ff;
+    border-radius: 999px;
+    font-weight: 700;
+    padding: 8px 14px;
+}
+
+.tickets-link:hover {
+    background: #b5f3ff;
+}
+
+.official-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.official-link-pill {
+    text-decoration: none;
+    color: #e8f2ff;
+    border: 1px solid rgba(166, 197, 225, 0.6);
+    background: rgba(11, 18, 28, 0.85);
+    border-radius: 999px;
+    padding: 9px 14px;
+    font-weight: 600;
+}
+
+.official-link-pill:hover {
+    border-color: #7ee8ff;
+    color: #7ee8ff;
+}
+
+.services-message {
+    margin: 0;
+    padding: 12px;
+    border-radius: 8px;
+    background: rgba(19, 28, 40, 0.75);
+    border: 1px solid rgba(156, 183, 212, 0.45);
+    color: #dbe7f3;
+    text-align: center;
+}
+
+.services-meta {
+    grid-column: 1 / -1;
+    margin: 0;
+    color: #b8c9dd;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+.services-official-note {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 10px 12px;
+    color: #d6e8fb;
+    text-align: center;
+    background: rgba(12, 24, 36, 0.85);
+    border: 1px solid rgba(146, 188, 227, 0.55);
+    border-radius: 8px;
+}
+
+.services-official-note a {
+    color: #7ee8ff;
+    font-weight: 700;
+}
+
+.services-official-note a:hover {
+    color: #ffffff;
+}
+
+.info-box {
+  border: 2px dotted #ccc;
+  border-radius: 12px;
+  margin: 30px 0;
+  padding: 30px 40px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.info-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+.backstory .info-layout {
+    flex-direction: row-reverse;
+}
+
+.info-copy {
+    flex: 1 1 62%;
+}
+
+.info-copy h2,
+.info-copy p {
+    text-align: center;
+}
+
+.mission .info-copy p {
+    text-align: center;
+    line-height: 1.6;
+    font-size: .99rem;
+}
+
+.backstory .info-copy p {
+    line-height: 1.3;
+}
+
+.info-media {
+    flex: 0 0 240px;
+}
+
+.info-image {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.25);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.info-box.mission {
+  background: #fff0f0; /* light maroon/red */
+  color: #800000;
+}
+.info-box.backstory {
+  background: #e0f7fa; /* light cyan/blue */
+  color: #006064;
+}
+
+@media (max-width: 760px) {
+    .services-main {
+        margin-top: 20px;
+    }
+
+    .services-panel {
+        padding: 16px;
+    }
+
+    .services-panel h3 {
+        font-size: 1.25rem;
+    }
+
+    .info-layout,
+    .backstory .info-layout {
+        flex-direction: column;
+    }
+
+    .info-copy h2,
+    .info-copy p {
+        text-align: center;
+    }
+
+    .info-media {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+
+    .info-image {
+        height: auto;
+        max-height: 320px;
+    }
+}
+
+.site-footer {
+    margin-top: 48px;
+    border-top: 2px solid rgba(255, 255, 255, 0.35);
+    background: rgba(8, 12, 18, 0.92);
+}
+
+.NAV + .site-footer {
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 22px 24px 26px;
+}
+
+.footer-disclaimer,
+.footer-contact {
+    margin: 0;
+    color: #e7edf5;
+    text-align: center;
+    font-size: 0.96rem;
+    line-height: 1.55;
+}
+
+.footer-contact {
+    margin-top: 10px;
+}
+
+.footer-contact a {
+    color: #7ee8ff;
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+.footer-contact a:hover {
+    color: #ffffff;
+}
+
+@media (max-width: 760px) {
+    .footer-content {
+        padding: 18px 16px 20px;
+    }
+
+    .footer-disclaimer,
+    .footer-contact {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 980px) {
+    .album-container {
+        padding-left: clamp(12px, 4vw, 32px);
+        padding-right: clamp(12px, 4vw, 32px);
+    }
+
+    .album-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+    }
+
+    .album-songs {
+        width: min(100%, 720px);
+    }
+
+    .album-songs ul {
+        grid-template-columns: repeat(2, minmax(130px, 1fr));
+        column-gap: 14px;
+    }
+}
+
+@media (max-width: 560px) {
+    .album-songs ul {
+        grid-template-columns: 1fr;
+    }
+
+    .album-songs li {
+        text-align: center;
+    }
+}
+
+@media (hover: none), (pointer: coarse) {
+    .album-songs {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        pointer-events: auto;
+    }
+}

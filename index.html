@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Home</title>
+  <style>
+    :root {
+      --bg-top: #0f172a;
+      --bg-bottom: #1f2937;
+      --panel: rgba(15, 23, 42, 0.72);
+      --text: #e5ecff;
+      --muted: #94a3b8;
+      --accent: #22d3ee;
+      --accent-2: #facc15;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(250, 204, 21, 0.16), transparent 28%),
+        radial-gradient(circle at 85% 85%, rgba(34, 211, 238, 0.14), transparent 32%),
+        linear-gradient(165deg, var(--bg-top), var(--bg-bottom));
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    main {
+      width: min(900px, 100%);
+      background: var(--panel);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      border-radius: 14px;
+      padding: 26px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 5vw, 2.7rem);
+      letter-spacing: 0.03em;
+    }
+
+    .intro {
+      margin: 8px 0 22px;
+      color: var(--muted);
+    }
+
+    .filter-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 16px;
+    }
+
+    .filter-btn {
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.65);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.9rem;
+      transition: border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--accent);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .filter-btn.is-active {
+      border-color: var(--accent);
+      color: #032530;
+      background: var(--accent);
+      font-weight: 700;
+    }
+
+    .filter-btn:focus-visible {
+      outline: 2px solid var(--accent-2);
+      outline-offset: 2px;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: var(--text);
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      background: rgba(15, 23, 42, 0.7);
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+
+    a:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--accent-2);
+      outline-offset: 2px;
+    }
+
+    .project-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .status-badge {
+      flex-shrink: 0;
+      font-size: 0.72rem;
+      line-height: 1;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    .status-final {
+      color: #d1fae5;
+      background: rgba(16, 185, 129, 0.2);
+      border-color: rgba(16, 185, 129, 0.45);
+    }
+
+    .status-prototype {
+      color: #fde68a;
+      background: rgba(245, 158, 11, 0.2);
+      border-color: rgba(245, 158, 11, 0.45);
+    }
+
+    .status-beta {
+      color: #bfdbfe;
+      background: rgba(59, 130, 246, 0.2);
+      border-color: rgba(59, 130, 246, 0.45);
+    }
+
+    .project-subtitle {
+      display: block;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.4;
+    }
+
+    .project-card.is-hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <h1>My Portfolio</h1>
+    <p class="intro">Project index and final builds.</p>
+    <div class="filter-controls" aria-label="Project status filters">
+      <button type="button" class="filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" class="filter-btn" data-filter="final" aria-pressed="false">Final</button>
+      <button type="button" class="filter-btn" data-filter="prototype" aria-pressed="false">Prototype</button>
+      <button type="button" class="filter-btn" data-filter="beta" aria-pressed="false">Beta</button>
+    </div>
+    <ul id="project-list">
+      <li class="project-card" data-status="final"><a href="SOLARIS_Site/index.html"><span class="project-title"><span>SOLARIS Site (Joji Tour)</span><span class="status-badge status-final">Final</span></span><span class="project-subtitle">Multi-page fan project with dynamic tour and socials data.</span></a></li>
+      <li class="project-card" data-status="prototype"><a href="Prototype_site/Prototype/index.html"><span class="project-title"><span>Prototype Site</span><span class="status-badge status-prototype">Prototype</span></span><span class="project-subtitle">Early concept layout used to plan the final SOLARIS build.</span></a></li>
+      <li class="project-card" data-status="final"><a href="Ocean 3/index.html"><span class="project-title"><span>Ocean Website</span><span class="status-badge status-final">Final</span></span><span class="project-subtitle">Multi-page site focused on responsive content structure for Web Design Final.</span></a></li>
+      <li class="project-card" data-status="beta"><a href="beta_div_test/index.html"><span class="project-title"><span>Beta Joji Website</span><span class="status-badge status-beta">Beta</span></span><span class="project-subtitle">Initial beta pass exploring layout and visual direction.</span></a></li>
+    </ul>
+  </main>
+
+  <script src="js/script.js"></script>
+
+</body>
+</html>

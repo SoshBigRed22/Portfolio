@@ -1,0 +1,18 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Update SOLARIS Tour Data",
+      "type": "shell",
+      "command": "node",
+      "args": [
+        "update-tour-data.js"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/SOLARIS"
+      },
+      "group": "build",
+      "problemMatcher": []
+    }
+  ]
+}
