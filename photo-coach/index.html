@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Photo Coach</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Fraunces:opsz,wght@9..144,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <p class="kicker">MVP Demo</p>
+      <h1>Photo Coach</h1>
+      <p class="subtitle">Snap or upload a photo and get instant quality feedback with actionable fixes.</p>
+    </header>
+
+    <section class="grid">
+      <article class="card camera-card">
+        <h2>Camera</h2>
+        <div class="camera-controls">
+          <label for="cameraSelect">Camera Source</label>
+          <div class="camera-control-row">
+            <select id="cameraSelect"></select>
+            <button id="refreshCamerasBtn" type="button">Refresh</button>
+          </div>
+          <p id="cameraStatus" class="camera-status">Click Refresh to list camera devices.</p>
+        </div>
+        <div class="camera-controls filter-controls">
+          <label for="filterSelect">Try-On Overlay</label>
+          <select id="filterSelect">
+            <option value="none">None</option>
+            <option value="septum">Septum Ring</option>
+            <option value="nose-stud-left">Nose Stud (Left)</option>
+            <option value="brow-left">Brow Ring (Left)</option>
+            <option value="earring-left">Hoop Earring (Left)</option>
+            <option value="earring-right">Hoop Earring (Right)</option>
+            <option value="custom-inspiration">Custom (from Inspiration)</option>
+          </select>
+          <div class="filter-size-row">
+            <label for="filterSize">Overlay Size</label>
+            <input id="filterSize" type="range" min="70" max="150" step="1" value="100">
+            <span id="filterSizeValue">100%</span>
+          </div>
+        </div>
+        <div class="camera-stage">
+          <video id="cameraFeed" autoplay muted></video>
+          <canvas id="faceOverlay" aria-hidden="true"></canvas>
+        </div>
+        <canvas id="captureCanvas" hidden></canvas>
+        <div class="camera-controls system-controls">
+          <label for="systemCameraIndex">System Camera Index (fallback)</label>
+          <div class="camera-control-row">
+            <select id="systemCameraIndex">
+              <option value="0">Index 0</option>
+              <option value="1">Index 1</option>
+              <option value="2">Index 2</option>
+              <option value="3">Index 3</option>
+              <option value="4">Index 4</option>
+              <option value="5">Index 5</option>
+            </select>
+            <button id="testSystemIndexBtn" type="button">Test Index</button>
+          </div>
+        </div>
+        <div class="actions">
+          <button id="startCameraBtn">Start / Restart Camera</button>
+          <button id="captureBtn" disabled>Capture</button>
+          <button id="systemCaptureBtn" type="button">Capture via System Camera (Fallback)</button>
+          <button id="autoProbeBtn" type="button">Auto Find Working Camera</button>
+          <button id="autoCaptureBtn" type="button">Auto Capture Best Camera</button>
+        </div>
+      </article>
+
+      <article class="card upload-card">
+        <h2>Upload</h2>
+        <label for="uploadInput" class="dropzone">
+          <input id="uploadInput" type="file" accept="image/*">
+          <span>Choose an image from your device</span>
+        </label>
+        <img id="previewImage" alt="Selected preview">
+        <div class="actions">
+          <button id="analyzeBtn" disabled>Analyze Photo</button>
+        </div>
+        <section class="inspiration-panel" aria-label="Inspiration import">
+          <h3>Inspiration</h3>
+          <p class="inspiration-help">Paste Pinterest links below to save inspiration in manual mode. This works even while Pinterest OAuth approval is pending. The more pins you add, the smarter the fit recommendations get.</p>
+          <div class="inspiration-form-row">
+            <input id="inspirationUrlInput" type="url" placeholder="https://www.pinterest.com/pin/..." autocomplete="off">
+            <button id="addInspirationBtn" type="button">Add Pin</button>
+          </div>
+          <div class="overlay-upload-row">
+            <label for="overlayImageInput" class="overlay-upload-label">
+              <input id="overlayImageInput" type="file" accept="image/*">
+              <span>Or choose a piercing image file</span>
+            </label>
+            <button id="addOverlayImageBtn" type="button">Add Image</button>
+          </div>
+          <span id="overlayUploadStatus" class="overlay-upload-status">Upload a piercing image to turn it into a transparent overlay.</span>
+          <input id="inspirationNoteInput" type="text" placeholder="Optional note, e.g. minimalist silver stud">
+          <div class="inspiration-meta-row">
+            <span id="inspirationStatus">No inspiration pins added yet.</span>
+            <button id="clearInspirationBtn" type="button">Clear</button>
+          </div>
+          <ul id="inspirationList" class="inspiration-list"></ul>
+        </section>
+      </article>
+
+      <article class="card results-card">
+        <h2>Results</h2>
+        <div id="scorePill" class="score-pill">Score: --</div>
+        <section id="piercingFitPanel" class="piercing-fit-panel" hidden>
+          <div id="piercingFitScore" class="piercing-fit-score">Piercing Fit: --</div>
+          <p id="piercingFitSummary" class="piercing-fit-summary">Capture or upload a photo to evaluate the selected piercing.</p>
+          <ul id="piercingFitList" class="piercing-fit-list"></ul>
+        </section>
+        <ul id="tipsList" class="tips-list">
+          <li>Analyze a photo to get tailored suggestions.</li>
+        </ul>
+        <dl id="metricsGrid" class="metrics-grid"></dl>
+        <section id="captureTrendPanel" class="capture-trend-panel" hidden>
+          <h3 class="trend-heading">Recent Captures</h3>
+          <ul id="captureTrendList" class="capture-trend-list"></ul>
+        </section>
+      </article>
+    </section>
+
+    <footer class="site-footer" aria-label="Site footer">
+      <a class="site-footer-link" href="privacy-policy.html">Privacy Policy</a>
+    </footer>
+  </main>
+
+  <!-- Crop Modal -->
+  <div id="cropModal" class="crop-modal" hidden tabindex="-1" role="dialog" aria-modal="true" aria-label="Select piercing region">
+    <div class="crop-modal-inner">
+      <h3 class="crop-modal-title">Select the Piercing</h3>
+      <p class="crop-modal-hint">Drag a box around just the jewelry, then click <strong>Confirm Crop</strong>. Or click <strong>Use Full Image</strong> to skip.</p>
+      <div class="crop-canvas-wrap">
+        <canvas id="cropCanvas"></canvas>
+      </div>
+      <div class="crop-modal-actions">
+        <button id="cropConfirmBtn" type="button" onclick="confirmCrop()">Confirm Crop</button>
+        <button id="cropSkipBtn" type="button" onclick="skipCrop()">Use Full Image</button>
+        <button id="cropCancelBtn" type="button" onclick="closeCropModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MediaPipe Face Mesh for landmark detection -->
+  <script async src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  <script async src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+  <script async src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
+  
+  <!-- Modules — load order matters: state first, then helpers, then entry point -->
+  <script src="js/state.js"></script>
+  <script src="js/tracking.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/camera.js"></script>
+  <script src="js/analysis.js"></script>
+  <script src="js/pinterest.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
