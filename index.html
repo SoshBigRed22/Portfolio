@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Web design portfolio featuring SOLARIS, Ocean, and prototype projects built with HTML, CSS, and JavaScript.">
+  <meta property="og:title" content="My Portfolio">
+  <meta property="og:description" content="A collection of multi-page web projects including final builds, prototypes, and beta experiments.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://soshbigred22.github.io/Portfolio/">
+  <meta property="og:image" content="https://soshbigred22.github.io/Portfolio/SOLARIS_Site/img/SOLARIS_TOUR.webp">
+  <meta name="twitter:card" content="summary_large_image">
   <title>Portfolio Home</title>
   <style>
     :root {
@@ -51,6 +58,13 @@
     .intro {
       margin: 8px 0 22px;
       color: var(--muted);
+    }
+
+    .about {
+      margin: -8px 0 16px;
+      color: #c3d1ea;
+      line-height: 1.5;
+      max-width: 72ch;
     }
 
     .filter-controls {
@@ -176,8 +190,8 @@
     <h1>My Portfolio</h1>
     <p class="intro">Project index and final builds.</p>
     <p class="about">This portfolio highlights my progression from early layout concepts to polished 
-    multi-page websites, with a focus on responsive design, clean structure, and practical JavaScript 
-    enhancements.</p>
+        multi-page websites, with a focus on responsive design, clean structure, and practical JavaScript 
+        enhancements.</p>
     <div class="filter-controls" aria-label="Project status filters">
       <button type="button" class="filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
       <button type="button" class="filter-btn" data-filter="final" aria-pressed="false">Final</button>
@@ -187,6 +201,7 @@
     <ul id="project-list">
       <li class="project-card" data-status="final"><a href="SOLARIS_Site/index.html"><span class="project-title"><span>SOLARIS Site (Joji Tour)</span><span class="status-badge status-final">Final</span></span><span class="project-subtitle">Multi-page fan project with dynamic tour and socials data.</span></a></li>
       <li class="project-card" data-status="prototype"><a href="Prototype_site/Prototype/index.html"><span class="project-title"><span>Prototype Site</span><span class="status-badge status-prototype">Prototype</span></span><span class="project-subtitle">Early concept layout used to plan the final SOLARIS build.</span></a></li>
+      <li class="project-card" data-status="prototype"><a href="photo-coach/index.html"><span class="project-title"><span>Photo Coach</span><span class="status-badge status-prototype">Prototype</span></span><span class="project-subtitle">MVP demo for real-time photo feedback with camera, upload, and suggestion workflows.</span></a></li>
       <li class="project-card" data-status="final"><a href="Ocean 3/index.html"><span class="project-title"><span>Ocean Website</span><span class="status-badge status-final">Final</span></span><span class="project-subtitle">Multi-page site focused on responsive content structure for Web Design Final.</span></a></li>
       <li class="project-card" data-status="beta"><a href="beta_div_test/index.html"><span class="project-title"><span>Beta Joji Website</span><span class="status-badge status-beta">Beta</span></span><span class="project-subtitle">Initial beta pass exploring layout and visual direction.</span></a></li>
     </ul>
