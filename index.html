@@ -154,6 +154,12 @@
       border: 1px solid transparent;
     }
 
+    .status-badges {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
     .status-final {
       color: #d1fae5;
       background: rgba(16, 185, 129, 0.2);
@@ -170,6 +176,12 @@
       color: #bfdbfe;
       background: rgba(59, 130, 246, 0.2);
       border-color: rgba(59, 130, 246, 0.45);
+    }
+
+    .status-new {
+      color: #fee2e2;
+      background: rgba(239, 68, 68, 0.25);
+      border-color: rgba(239, 68, 68, 0.5);
     }
 
     .project-subtitle {
@@ -200,8 +212,10 @@
     </div>
     <ul id="project-list">
       <li class="project-card" data-status="final"><a href="SOLARIS_Site/index.html"><span class="project-title"><span>SOLARIS Site (Joji Tour)</span><span class="status-badge status-final">Final</span></span><span class="project-subtitle">Multi-page fan project with dynamic tour and socials data.</span></a></li>
+      <li class="project-card" data-status="final"><a href="Visualizer Project/index.html"><span class="project-title"><span>Visualizer Project</span><span class="status-badges"><span class="status-badge status-final">Final</span><span class="status-badge status-new">New</span></span></span><span class="project-subtitle">Interactive synthwave audio visualizer with upload, color controls, and fullscreen mode.</span></a></li>
       <li class="project-card" data-status="prototype"><a href="Prototype_site/Prototype/index.html"><span class="project-title"><span>Prototype Site</span><span class="status-badge status-prototype">Prototype</span></span><span class="project-subtitle">Early concept layout used to plan the final SOLARIS build.</span></a></li>
       <li class="project-card" data-status="prototype"><a href="photo-coach/index.html"><span class="project-title"><span>Photo Coach</span><span class="status-badge status-prototype">Prototype</span></span><span class="project-subtitle">MVP demo for real-time photo feedback with camera, upload, and suggestion workflows.</span></a></li>
+      <li class="project-card" data-status="prototype"><a href="Scorpion LLC Remodel/index.html"><span class="project-title"><span>Scorpion LLC Remodel</span><span class="status-badges"><span class="status-badge status-prototype">Prototype</span><span class="status-badge status-new">New</span></span></span><span class="project-subtitle">Remodel-in-progress construction business site with service pages, gallery, and estimate flow.</span></a></li>
       <li class="project-card" data-status="final"><a href="Ocean 3/index.html"><span class="project-title"><span>Ocean Website</span><span class="status-badge status-final">Final</span></span><span class="project-subtitle">Multi-page site focused on responsive content structure for Web Design Final.</span></a></li>
       <li class="project-card" data-status="beta"><a href="beta_div_test/index.html"><span class="project-title"><span>Beta Joji Website</span><span class="status-badge status-beta">Beta</span></span><span class="project-subtitle">Initial beta pass exploring layout and visual direction.</span></a></li>
     </ul>
