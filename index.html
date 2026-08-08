@@ -184,6 +184,10 @@
       border-color: rgba(239, 68, 68, 0.5);
     }
 
+    .status-badge.is-hidden {
+      display: none;
+    }
+
     .project-subtitle {
       display: block;
       color: var(--muted);
@@ -193,6 +197,14 @@
 
     .project-card.is-hidden {
       display: none;
+    }
+
+    .site-version {
+      margin: 16px 0 0;
+      text-align: right;
+      color: rgba(148, 163, 184, 0.8);
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
     }
   </style>
 </head>
@@ -209,16 +221,18 @@
       <button type="button" class="filter-btn" data-filter="final" aria-pressed="false">Final</button>
       <button type="button" class="filter-btn" data-filter="prototype" aria-pressed="false">Prototype</button>
       <button type="button" class="filter-btn" data-filter="beta" aria-pressed="false">Beta</button>
+      <button type="button" class="filter-btn" data-filter="recent" aria-pressed="false">Recently Added</button>
     </div>
     <ul id="project-list">
       <li class="project-card" data-status="final"><a href="SOLARIS_Site/index.html"><span class="project-title"><span>SOLARIS Site (Joji Tour)</span><span class="status-badge status-final">Final</span></span><span class="project-subtitle">Multi-page fan project with dynamic tour and socials data.</span></a></li>
-      <li class="project-card" data-status="final"><a href="Visualizer Project/index.html"><span class="project-title"><span>Visualizer Project</span><span class="status-badges"><span class="status-badge status-final">Final</span><span class="status-badge status-new">New</span></span></span><span class="project-subtitle">Interactive synthwave audio visualizer with upload, color controls, and fullscreen mode.</span></a></li>
+      <li class="project-card" data-status="final" data-added-date="2026-08-08"><a href="Visualizer Project/index.html"><span class="project-title"><span>Visualizer Project</span><span class="status-badges"><span class="status-badge status-final">Final</span><span class="status-badge status-new">New</span></span></span><span class="project-subtitle">Interactive synthwave audio visualizer with upload, color controls, and fullscreen mode.</span></a></li>
       <li class="project-card" data-status="prototype"><a href="Prototype_site/Prototype/index.html"><span class="project-title"><span>Prototype Site</span><span class="status-badge status-prototype">Prototype</span></span><span class="project-subtitle">Early concept layout used to plan the final SOLARIS build.</span></a></li>
       <li class="project-card" data-status="prototype"><a href="photo-coach/index.html"><span class="project-title"><span>Photo Coach</span><span class="status-badge status-prototype">Prototype</span></span><span class="project-subtitle">MVP demo for real-time photo feedback with camera, upload, and suggestion workflows.</span></a></li>
-      <li class="project-card" data-status="prototype"><a href="Scorpion LLC Remodel/index.html"><span class="project-title"><span>Scorpion LLC Remodel</span><span class="status-badges"><span class="status-badge status-prototype">Prototype</span><span class="status-badge status-new">New</span></span></span><span class="project-subtitle">Remodel-in-progress construction business site with service pages, gallery, and estimate flow.</span></a></li>
+      <li class="project-card" data-status="prototype" data-added-date="2026-08-08"><a href="Scorpion LLC Remodel/index.html"><span class="project-title"><span>Scorpion LLC Remodel</span><span class="status-badges"><span class="status-badge status-prototype">Prototype</span><span class="status-badge status-new">New</span></span></span><span class="project-subtitle">Remodel-in-progress construction business site with service pages, gallery, and estimate flow.</span></a></li>
       <li class="project-card" data-status="final"><a href="Ocean 3/index.html"><span class="project-title"><span>Ocean Website</span><span class="status-badge status-final">Final</span></span><span class="project-subtitle">Multi-page site focused on responsive content structure for Web Design Final.</span></a></li>
       <li class="project-card" data-status="beta"><a href="beta_div_test/index.html"><span class="project-title"><span>Beta Joji Website</span><span class="status-badge status-beta">Beta</span></span><span class="project-subtitle">Initial beta pass exploring layout and visual direction.</span></a></li>
     </ul>
+    <p id="site-version" class="site-version" aria-label="Portfolio patch version">v2.7 · 2026-08-08</p>
   </main>
 
   <script src="js/script.js"></script>
