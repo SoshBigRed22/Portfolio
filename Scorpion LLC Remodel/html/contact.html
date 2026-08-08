@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Scorpion Construction</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="../index.html" class="logo">
+                <h2>SCORPION <span>CONSTRUCTION</span></h2>
+            </a>
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html" class="active btn-primary">Get Free Estimate</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero hero-subpage">
+        <div class="container hero-content">
+            <h1>Contact Scorpion Construction</h1>
+            <p>Reach out to discuss your project, request a free in-person estimate, or ask a question.</p>
+        </div>
+    </section>
+
+    <section class="estimate-section">
+        <div class="container">
+            <div class="estimate-card">
+                <div class="estimate-header">
+                    <h2>Schedule Service or Request an Estimate</h2>
+                    <p>Call us directly or send a message below.</p>
+                    <a href="tel:9703804966" class="btn-primary call-direct-btn">Call (970) 380-4966</a>
+                </div>
+
+                <form class="estimate-form" action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(970) 000-0000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Service Needed</label>
+                        <select id="service" name="service" required>
+                            <option value="" disabled selected>Select a Service</option>
+                            <option value="concrete">Concrete Installation / Repair</option>
+                            <option value="roofing">Roofing (Asphalt or Metal)</option>
+                            <option value="framing">Construction Framing</option>
+                            <option value="remodel">Kitchen or Bath Remodel</option>
+                            <option value="other">Other Inquiry</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Project Description</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Tell us about your project..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary btn-submit">Submit Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h3>SCORPION <span>CONSTRUCTION</span></h3>
+                <p>Quality concrete, roofing, framing, and remodeling services in Fort Morgan, CO.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="../index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Info</h4>
+                <p>📍 Fort Morgan, CO 80701</p>
+                <p>📞 <a href="tel:9703804966">(970) 380-4966</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Scorpion Construction. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synthwave Audio Visualizer</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- UI Overlay Panel -->
+    <div class="ui-container" id="ui-panel">
+        <h1>SYNTHWAVE VISUALIZER</h1>
+        
+        <div class="controls">
+            <!-- Audio Upload -->
+            <label for="audio-upload" class="custom-file-upload">
+                Choose Audio File
+            </label>
+            <input type="file" id="audio-upload" accept="audio/*">
+            
+            <audio id="audio-player" controls></audio>
+
+            <!-- Customization Controls -->
+            <div class="customizer-toolbar">
+                <div class="color-picker-wrapper">
+                    <label for="color-picker">Color:</label>
+                    <input type="color" id="color-picker" value="#ffffff">
+                </div>
+
+                <button id="rainbow-btn" class="tool-btn">Rainbow: OFF</button>
+                <button id="fullscreen-btn" class="tool-btn">Fullscreen</button>
+                <button id="hide-ui-btn" class="tool-btn">Hide UI</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating button to bring back UI when hidden -->
+    <button id="show-ui-btn" class="show-ui-btn hidden">Show Controls</button>
+
+    <!-- Canvas -->
+    <canvas id="visualizer-canvas"></canvas>
+
+    <!-- Scripts -->
+    <script src="js/visualizer.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
